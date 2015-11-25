@@ -166,7 +166,7 @@ public class ForegroundService extends Service{
     private void displayCount() {
         Cursor c = db.rawQuery("SELECT * FROM records", null);
         while(c.moveToNext()){
-            Log.i("SQLite Foreground Service", "How many times button pushed: " + c.getInt(c.getColumnIndexOrThrow("clickno")));
+            Log.i("SQLite Foreground Service", "How many times button pushed: " + c.getInt(c.getColumnIndexOrThrow("clickno")) + " ID: " + c.getInt(c.getColumnIndexOrThrow("click_id")));
             notification.setContentText("Button tapped a total of " + c.getInt(c.getColumnIndexOrThrow("clickno")) + " times.");
             notificationManager.notify(notiID, notification.build());
         }
